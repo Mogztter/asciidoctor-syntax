@@ -1,0 +1,43 @@
+= Stem
+:stem:
+
+== Plain old +++:stem:+++
+
+We humans are mostly water (stem:[H_2O]).
+
+stem:[sqrt(4) = 2]
+
+[stem]
+++++
+sqrt(4) = 2
+++++
+
+== Now use +++:stem: latexmath+++
+
+:stem: latexmath
+
+latexmath:[\sqrt 4 = 2]
+
+[latexmath]
+++++
+\sqrt 4 = 2
+++++
+
+From the docs ...
+
+latexmath:[$C = \alpha + \beta Y^{\gamma} + \epsilon$]
+
+-- there is a spurious $.  It is not needed in the formula.
+
+
+latexmath:[C = \alpha + \beta Y^{\gamma} + \epsilon]
+
+== Finally, use +++:stem: asciimath+++
+
+:stem: latexmath
+
+[asciimath]
+++++
+sqrt(4) = 2
+++++
+
