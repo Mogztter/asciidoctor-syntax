@@ -1,0 +1,81 @@
+= Documentation as code
+
+
+
+== Variables
+
+[source,adoc]
+....
+:uri-homepage: http://asciidoctor.org
+:uri-docs: {uri-homepage}/docs
+
+ - {uri-docs}/user-manual
+ - {uri-docs}/asciidoc-syntax-quick-reference
+....
+
+:uri-homepage: http://asciidoctor.org
+:uri-docs: {uri-homepage}/docs
+
+ - {uri-docs}/user-manual
+ - {uri-docs}/asciidoc-syntax-quick-reference
+
+== Condition
+
+[source,adoc]
+....
+\ifdef::env-github[]
+This content is for GitHub only.
+\endif::[]
+....
+
+== Inclusion
+
+
+[source]
+....
+:sourcedir: src/main/java
+
+[source,java]
+----
+include::{sourcedir}/org/asciidoctor/OptionsBuilder.java
+----
+....
+
+== Inclusion partielle
+
+```java
+public class WhenAttributesAreUsed {
+  @Test
+  public void qualified_http_url_inline_with_hide_uri_scheme_set() throws IOException {
+    // tag::uri-scheme[]
+    Attributes attributes = attributes().hiddenUriScheme(true).get(); // \<1>
+	Options options = options().attributes(attributes).get();
+	String content = "The AsciiDoc project is located at http://asciidoc.org.";
+	String content = asciidoctor.render(content, options);
+    // end::uri-scheme[]
+
+    Document doc = Jsoup.parse(content, "UTF-8");
+    Element link = doc.getElementsByTag("a").first();
+    assertThat(link.text(), is("asciidoc.org"));
+  }
+```
+
+[source]
+....
+:testdir: ${project.build.testSourceDirectory}
+
+[source,java]
+----
+\include::{testdir}/org/asciidoctor/WhenAttributesAreUsed.java[tags=uri-scheme]
+----
+<1> Positionne l'attribut permettant de masquer le schéma sur les liens
+....
+
+== Extensions
+
+// TODO Ruby, Java ?
+
+== Build tool
+
+// TODO Maven, Gradle, Ant
+// TODO Maven filtering
