@@ -1,0 +1,6 @@
+Scenario, Records/sec, MB/sec
+
+Single producer thread, 821 557, 78.3
+Single producer thread 3x asynchronous replication, 786 980, 75.1
+Single producer thread 3x synchronous replication, 421 823, 40.2
+Three producers 3x async replication, 2 024 032, 193.1

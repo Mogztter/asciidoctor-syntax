@@ -1,6 +1,6 @@
-= Documentation as code
+= Hack your documentation with Asciidoctor
 
-
+5 things to hack documentation!
 
 == Variables
 
@@ -19,7 +19,7 @@
  - {uri-docs}/user-manual
  - {uri-docs}/asciidoc-syntax-quick-reference
 
-== Condition
+== Conditions
 
 [source,adoc]
 ....
@@ -28,7 +28,7 @@ This content is for GitHub only.
 \endif::[]
 ....
 
-== Inclusion
+== Includes
 
 
 [source]
@@ -41,7 +41,7 @@ include::{sourcedir}/org/asciidoctor/OptionsBuilder.java
 ----
 ....
 
-== Inclusion partielle
+=== Partial includes
 
 ```java
 public class WhenAttributesAreUsed {
@@ -71,11 +71,19 @@ public class WhenAttributesAreUsed {
 <1> Positionne l'attribut permettant de masquer le schéma sur les liens
 ....
 
-== Extensions
+=== Include csv files
+
+.Kafka Producer Throughput
+[cols="2,>1,>1"]
+,===
+include::result.csv[]
+,===
+
+== Extensions & build tool
+
+chart::sample.csv[line]
 
 // TODO Ruby, Java ?
-
-== Build tool
 
 // TODO Maven, Gradle, Ant
 // TODO Maven filtering
